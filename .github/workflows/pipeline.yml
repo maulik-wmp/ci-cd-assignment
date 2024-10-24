@@ -34,7 +34,8 @@ jobs:
       needs: build
 
       steps:
-      
+        - uses: actions/checkout@v4
+        
         - name: Send E-mail
           if: always()
           uses: dawidd6/action-send-mail@v2
