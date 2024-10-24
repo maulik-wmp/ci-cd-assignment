@@ -32,6 +32,7 @@ jobs:
       runs-on: ubuntu-latest
       name: Build-Job-2
       needs: build
+      if: ${{ always() }}
 
       steps:
         - uses: actions/checkout@v4
