@@ -11,25 +11,25 @@ pipeline:
         repoName: ci-cd-assignment
   stages:
     - stage:
-        identifier: build
-        name: build
+        name: test
+        identifier: test
+        description: ""
+        type: Custom
         spec:
-          caching:
-            enabled: true
-          cloneCodebase: true
           execution:
             steps:
               - step:
-                  identifier: echo
-                  name: echo
+                  type: ShellScript
+                  name: hello-world
+                  identifier: helloworld
                   spec:
-                    command: echo hello world
-                  timeout: ""
-                  type: Run
-          platform:
-            arch: Amd64
-            os: Linux
-          runtime:
-            spec: {}
-            type: Docker
-        type: CI
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo "Hello World"
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}
